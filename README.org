@@ -1,17 +1,16 @@
-# elli_cookie
+#+OPTIONS: ^{}
+* elli_cookie
+#+ATTR_HTML: alt="Build Status"
+[[https://travis-ci.org/yurrriq/elli_cookie][file:https://travis-ci.org/yurrriq/elli_cookie.svg?branch=master]]
 
-[![Build Status](https://travis-ci.org/yurrriq/elli_cookie.svg?branch=master)](https://travis-ci.org/yurrriq/elli_cookie)
+A library application for reading, setting,
+and otherwise managing cookies in [[https://github.com/knutin/elli][elli]].
 
-A library application for reading, setting, and otherwise managing
-cookies in [elli](https://github.com/knutin/elli).
+** Usage
+See the large test set in [[https://github.com/drfloob/elli_cookie/blob/master/test/elli_cookie_test.erl][=elli_cookie_test=]] for more thorough usage examples.
 
-## Usage
-
-See the large test set in [`elli_cookie`](https://github.com/drfloob/elli_cookie/blob/master/src/elli_cookie.erl) for a more thorough set of usage examples.
-
-### Basic Cookie Management and Cookie Option Settings
-
-```erlang
+*** Basic Cookie Management and Cookie Option Settings
+#+BEGIN_SRC erlang
 %% in an elli callback module
 handle(Req, _) ->
     Cookies = elli_cookie:parse(Req),
@@ -28,4 +27,4 @@ handle(Req, _) ->
 
     %% return response with cookies
     {ok, [DeleteKeyCookie, FizzCookie], "key deleted; fizz set"}.
-```
+#+END_SRC
