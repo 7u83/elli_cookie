@@ -1,5 +1,7 @@
 # elli_cookie
 
+[![Build Status](https://travis-ci.org/yurrriq/elli_cookie.svg?branch=master)](https://travis-ci.org/yurrriq/elli_cookie)
+
 A library application for reading, setting, and otherwise managing
 cookies in [elli](https://github.com/knutin/elli).
 
