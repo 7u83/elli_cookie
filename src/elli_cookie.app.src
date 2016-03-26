@@ -1,11 +1,7 @@
 {application, elli_cookie,
- [
-  {description, "Cookies for elli"},
-  {vsn, "0.0.3"},
+ [{description, "Cookies for elli."},
+  {vsn, "0.0.4"},
   {registered, []},
-  {applications, [
-                  kernel,
-                  stdlib
-                 ]},
+  {applications, [kernel, stdlib]},
   {env, []}
  ]}.
