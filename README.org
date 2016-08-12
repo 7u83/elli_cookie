@@ -1,30 +1,33 @@
+#+STARTUP: showall
 #+OPTIONS: ^{}
 * elli_cookie
 #+ATTR_HTML: alt="Build Status"
-[[https://travis-ci.org/yurrriq/elli_cookie][file:https://travis-ci.org/yurrriq/elli_cookie.svg?branch=master]]
+[[https://travis-ci.org/elli-lib/elli_cookie][file:https://travis-ci.org/elli-lib/elli_cookie.svg?branch=master]]
 
 A library application for reading, setting,
-and otherwise managing cookies in [[https://github.com/knutin/elli][elli]].
+and otherwise managing cookies in [[https://github.com/knutin/elli][Elli]].
 
 ** Usage
-See the large test set in [[https://github.com/yurrriq/elli_cookie/blob/master/test/elli_cookie_test.erl][elli_cookie_test]] for more thorough usage examples.
+See the large test set in [[file:test/elli_cookie_test.erl][elli_cookie_test]] for more thorough usage examples.
 
 *** Basic Cookie Management and Cookie Option Settings
+In an Elli callback module:
 #+BEGIN_SRC erlang
-%% in an elli callback module
-handle(Req, _) ->
+  handle(Req, _Config) ->
     Cookies = elli_cookie:parse(Req),
 
     %% retrieve a cookie value ...
-    _PublicKey = elli_cookie:get("key", Cookies),
+    _PublicKey = elli_cookie:get(<<"key">>, Cookies),
     %% ... and do something with it
 
-    %% create new cookie for domain www.example.com that expires in 2 weeks
-    FizzCookie = elli_cookie:new("fizz", "buzz", [elli_cookie:domain("www.example.com"), elli_cookie:expires({2, weeks})]),
+    %% create new cookie for domain www.example.com that expires in two weeks
+    FizzCookie = elli_cookie:new(<<"fizz">>, <<"buzz">>,
+                                 [elli_cookie:domain(<<"www.example.com">>),
+                                  elli_cookie:expires({2, weeks})]),
 
     %% delete key cookie
-    DeleteKeyCookie = elli_cookie:delete("key"),
+    DeleteKeyCookie = elli_cookie:delete(<<"key">>),
 
     %% return response with cookies
-    {ok, [DeleteKeyCookie, FizzCookie], "key deleted; fizz set"}.
+    {ok, [DeleteKeyCookie, FizzCookie], <<"key deleted; fizz set">>}.
 #+END_SRC
