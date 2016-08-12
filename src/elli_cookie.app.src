@@ -1,7 +1,14 @@
-{application, elli_cookie,
- [{description, "Cookies for elli."},
-  {vsn, "0.0.6"},
-  {registered, []},
+{application, elli_cookie, [
+  {description,  "Cookies for Elli."},
+  {vsn,          "0.0.6"},
+  {registered,   []},
   {applications, [kernel, stdlib]},
-  {env, []}
- ]}.
+  {env,          []},
+
+  {contributors, ["aj heller", "Eric Bailey"]},
+  {maintainers,  ["Eric Bailey"]},
+  {licenses,     ["MIT"]},
+  {links, [
+    {"GitHub", "https://github.com/elli-lib/elli_cookie"}
+  ]}
+]}.
