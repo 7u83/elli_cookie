@@ -1,8 +1,8 @@
 #+STARTUP: showall
-#+OPTIONS: ^{}
+#+OPTIONS: ^:{}
 * elli_cookie
-#+ATTR_HTML: alt="Build Status"
 [[https://travis-ci.org/elli-lib/elli_cookie][file:https://travis-ci.org/elli-lib/elli_cookie.svg?branch=master]]
+[[https://hex.pm/packages/elli_cookie][file:https://img.shields.io/hexpm/v/elli_cookie.svg]]
 
 A library application for reading, setting,
 and otherwise managing cookies in [[https://github.com/knutin/elli][Elli]].

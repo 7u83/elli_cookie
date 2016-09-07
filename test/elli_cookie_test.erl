@@ -24,7 +24,8 @@
 
 parse_test_() ->
   [ ?_assertError(function_clause, parse(#req{}))
-  , ?_assertError({badmatch, _}, parse(#req{headers=[{<<"Cookie">>, <<"1=">>}]}))
+  , ?_assertEqual([{<<"1">>, <<>>}], parse(#req{headers=[{<<"Cookie">>, <<"1=">>}]}))
+  , ?_assertEqual([{<<"1">>, <<>>}], parse(#req{headers=[{<<"Cookie">>, <<"1">>}]}))
 
   , ?_assertEqual(no_cookies, parse(#req{headers=[]}))
   , ?_assertEqual([{<<"1">>, <<"2">>}], parse(#req{headers=[{<<"Cookie">>, <<"1=2">>}]}))
