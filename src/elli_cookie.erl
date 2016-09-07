@@ -86,21 +86,18 @@
 -spec parse(Req :: elli:req()) -> no_cookies | cookie_list().
 parse(Req) -> tokenize(elli_request:get_header(<<"Cookie">>, Req)).
 
-%% @doc Retrieve a specific cookie value from the set of parsed cookies.
-%% If there is not a value for `Key' in `Cookies', return `undefined'.
+%% @equiv get(Key, Cookies, undefined)
 -spec get(Key, Cookies) -> binary() | undefined when
     Key     :: binary() | string(),
     Cookies :: cookie_list().
-get(Key, Cookies)  ->
-  ok = valid_cookie_name(Key),
-  proplists:get_value(to_bin(Key), Cookies).
+get(Key, Cookies) -> get(Key, Cookies, undefined).
 
 %% @doc Retrieve a specific cookie value from the set of parsed cookies.
 %% If there is not a value for `Key' in `Cookies', return `Default'.
 -spec get(Key, Cookies, Default) -> binary() when
     Key     :: binary() | string(),
     Cookies :: cookie_list(),
-    Default :: binary().
+    Default :: binary() | undefined.
 get(_, no_cookies, Default) -> Default;
 get(Key, Cookies, Default) ->
   ok = valid_cookie_name(Key),

@@ -161,7 +161,7 @@ the lifetime of the cookie in seconds, a decimal non-negative integer."
 ## Function Index ##
 
 
-<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#delete-1">delete/1</a></td><td>Equivalent to <a href="#delete-2"><tt>delete(Name, [])</tt></a>.</td></tr><tr><td valign="top"><a href="#delete-2">delete/2</a></td><td>Create a header that will delete a specific cookie on the client.</td></tr><tr><td valign="top"><a href="#domain-1">domain/1</a></td><td>Set a domain for a cookie.</td></tr><tr><td valign="top"><a href="#expires-1">expires/1</a></td><td>Set cookie expiration.</td></tr><tr><td valign="top"><a href="#get-2">get/2</a></td><td>Retrieve a specific cookie value from the set of parsed cookies.</td></tr><tr><td valign="top"><a href="#get-3">get/3</a></td><td>Retrieve a specific cookie value from the set of parsed cookies.</td></tr><tr><td valign="top"><a href="#http_only-0">http_only/0</a></td><td>Make an HTTP-only cookie.</td></tr><tr><td valign="top"><a href="#max_age-1">max_age/1</a></td><td>Set cookie <code>Max-Age</code>.</td></tr><tr><td valign="top"><a href="#new-2">new/2</a></td><td>Equivalent to <a href="#new-3"><tt>new(Name, Value, [])</tt></a>.</td></tr><tr><td valign="top"><a href="#new-3">new/3</a></td><td>Create a new cookie in a format appropriate for a server response.</td></tr><tr><td valign="top"><a href="#parse-1">parse/1</a></td><td>Return a proplist made from the submitted cookies.</td></tr><tr><td valign="top"><a href="#path-1">path/1</a></td><td>Set a path for a cookie.</td></tr><tr><td valign="top"><a href="#secure-0">secure/0</a></td><td>Make a cookie secure (SSL).</td></tr></table>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#delete-1">delete/1</a></td><td>Equivalent to <a href="#delete-2"><tt>delete(Name, [])</tt></a>.</td></tr><tr><td valign="top"><a href="#delete-2">delete/2</a></td><td>Create a header that will delete a specific cookie on the client.</td></tr><tr><td valign="top"><a href="#domain-1">domain/1</a></td><td>Set a domain for a cookie.</td></tr><tr><td valign="top"><a href="#expires-1">expires/1</a></td><td>Set cookie expiration.</td></tr><tr><td valign="top"><a href="#get-2">get/2</a></td><td>Equivalent to <a href="#get-3"><tt>get(Key, Cookies, undefined)</tt></a>.</td></tr><tr><td valign="top"><a href="#get-3">get/3</a></td><td>Retrieve a specific cookie value from the set of parsed cookies.</td></tr><tr><td valign="top"><a href="#http_only-0">http_only/0</a></td><td>Make an HTTP-only cookie.</td></tr><tr><td valign="top"><a href="#max_age-1">max_age/1</a></td><td>Set cookie <code>Max-Age</code>.</td></tr><tr><td valign="top"><a href="#new-2">new/2</a></td><td>Equivalent to <a href="#new-3"><tt>new(Name, Value, [])</tt></a>.</td></tr><tr><td valign="top"><a href="#new-3">new/3</a></td><td>Create a new cookie in a format appropriate for a server response.</td></tr><tr><td valign="top"><a href="#parse-1">parse/1</a></td><td>Return a proplist made from the submitted cookies.</td></tr><tr><td valign="top"><a href="#path-1">path/1</a></td><td>Set a path for a cookie.</td></tr><tr><td valign="top"><a href="#secure-0">secure/0</a></td><td>Make a cookie secure (SSL).</td></tr></table>
 
 
 <a name="functions"></a>
@@ -224,8 +224,7 @@ get(Key, Cookies) -&gt; binary() | undefined
 
 <ul class="definitions"><li><code>Key = binary() | string()</code></li><li><code>Cookies = <a href="#type-cookie_list">cookie_list()</a></code></li></ul>
 
-Retrieve a specific cookie value from the set of parsed cookies.
-If there is not a value for `Key` in `Cookies`, return `undefined`.
+Equivalent to [`get(Key, Cookies, undefined)`](#get-3).
 
 <a name="get-3"></a>
 
@@ -235,7 +234,7 @@ If there is not a value for `Key` in `Cookies`, return `undefined`.
 get(Key, Cookies, Default) -&gt; binary()
 </code></pre>
 
-<ul class="definitions"><li><code>Key = binary() | string()</code></li><li><code>Cookies = <a href="#type-cookie_list">cookie_list()</a></code></li><li><code>Default = binary()</code></li></ul>
+<ul class="definitions"><li><code>Key = binary() | string()</code></li><li><code>Cookies = <a href="#type-cookie_list">cookie_list()</a></code></li><li><code>Default = binary() | undefined</code></li></ul>
 
 Retrieve a specific cookie value from the set of parsed cookies.
 If there is not a value for `Key` in `Cookies`, return `Default`.
