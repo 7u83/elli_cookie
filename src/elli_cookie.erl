@@ -118,9 +118,10 @@ tokenize(_) ->
   no_cookies.
 
 tokenize2(NVP) ->
-  [N,V] = binary:split(NVP, <<"=">>, [trim]),
-  {strip_bin(N), strip_bin(V)}.
-%% {N, V}.
+  case binary:split(NVP, <<"=">>, [trim]) of
+    [N,V] -> {strip_bin(N), strip_bin(V)};
+    [N]   -> {strip_bin(N), <<>>}
+  end.
 
 set_cookie_attribute({expires, Exp}, Bin) ->
   BExp = to_bin(Exp),
