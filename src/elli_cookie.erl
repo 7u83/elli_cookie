@@ -94,10 +94,9 @@ get(Key, Cookies) -> get(Key, Cookies, undefined).
 
 %% @doc Retrieve a specific cookie value from the set of parsed cookies.
 %% If there is not a value for `Key' in `Cookies', return `Default'.
--spec get(Key, Cookies, Default) -> binary() when
+-spec get(Key, Cookies, Default) -> binary() | Default when
     Key     :: binary() | string(),
-    Cookies :: no_cookies | cookie_list(),
-    Default :: binary() | undefined.
+    Cookies :: no_cookies | cookie_list().
 get(_, no_cookies, Default) -> Default;
 get(Key, Cookies, Default) ->
   ok = valid_cookie_name(Key),
