@@ -157,7 +157,7 @@ secure() -> secure.
 http_only() -> http_only.
 
 %% @doc Set cookie expiration.
--spec expires(Expiration :: expiration()) -> expires().
+-spec expires(Expiration :: expiration() | calendar:datetime()) -> expires().
 expires({S, seconds}) -> expires_plus(S);
 expires({M, minutes}) -> expires_plus(M*60);
 expires({H, hours})   -> expires_plus(H*60*60);
