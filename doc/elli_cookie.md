@@ -8,7 +8,7 @@
 
 A library application for reading and managing cookies in elli.
 
-Copyright (c) 2012, aj heller; 2016, Eric Bailey
+Copyright (c) 2012, aj heller; 2016, Eric Bailey; 2016-2020, elli-lib team
 
 __Authors:__ aj heller ([`aj@drfloob.com`](mailto:aj@drfloob.com)), Eric Bailey ([`eric@ericb.me`](mailto:eric@ericb.me)).
 
@@ -208,7 +208,7 @@ Set a domain for a cookie.
 ### expires/1 ###
 
 <pre><code>
-expires(Expiration::<a href="#type-expiration">expiration()</a>) -&gt; <a href="#type-expires">expires()</a>
+expires(Expiration::<a href="#type-expiration">expiration()</a> | <a href="calendar.md#type-datetime">calendar:datetime()</a>) -&gt; <a href="#type-expires">expires()</a>
 </code></pre>
 <br />
 
@@ -222,7 +222,7 @@ Set cookie expiration.
 get(Key, Cookies) -&gt; binary() | undefined
 </code></pre>
 
-<ul class="definitions"><li><code>Key = binary() | string()</code></li><li><code>Cookies = <a href="#type-cookie_list">cookie_list()</a></code></li></ul>
+<ul class="definitions"><li><code>Key = binary() | string()</code></li><li><code>Cookies = no_cookies | <a href="#type-cookie_list">cookie_list()</a></code></li></ul>
 
 Equivalent to [`get(Key, Cookies, undefined)`](#get-3).
 
@@ -231,10 +231,10 @@ Equivalent to [`get(Key, Cookies, undefined)`](#get-3).
 ### get/3 ###
 
 <pre><code>
-get(Key, Cookies, Default) -&gt; binary()
+get(Key, Cookies, Default) -&gt; binary() | Default
 </code></pre>
 
-<ul class="definitions"><li><code>Key = binary() | string()</code></li><li><code>Cookies = <a href="#type-cookie_list">cookie_list()</a></code></li><li><code>Default = binary() | undefined</code></li></ul>
+<ul class="definitions"><li><code>Key = binary() | string()</code></li><li><code>Cookies = no_cookies | <a href="#type-cookie_list">cookie_list()</a></code></li></ul>
 
 Retrieve a specific cookie value from the set of parsed cookies.
 If there is not a value for `Key` in `Cookies`, return `Default`.
