@@ -1,7 +1,7 @@
 %%%===================================================================
 %%% @author aj heller <aj@drfloob.com>
 %%% @author Eric Bailey <eric@ericb.me>
-%%% @copyright 2012, aj heller; 2016, Eric Bailey
+%%% @copyright 2012, aj heller; 2016, Eric Bailey; 2016-2020, elli-lib team
 %%% @end
 %%% @doc A library application for reading and managing cookies in elli.
 %%% @end

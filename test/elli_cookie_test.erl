@@ -1,7 +1,6 @@
 %%%===================================================================
 %%% @author aj heller <aj@drfloob.com>
-%%% @copyright (C) 2012, aj heller
-%%% @copyright (C) 2016, Eric Bailey
+%%% @copyright (C) 2012, aj heller; 2016, Eric Bailey; 2016-2020, elli-lib team
 %%% @doc elli_cookie unit tests.
 %%% @end
 %%% Created :  25 Mar 2016 by Eric Bailey
